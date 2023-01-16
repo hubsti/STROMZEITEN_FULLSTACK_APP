@@ -1,0 +1,184 @@
+.topbar {
+  width: 100%;
+  height: var(--topbar-size);
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  color: var(--text-accent);
+  background-color: var(--bg-widgets);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.topbarWrapper {
+  height: var(--topbar-size);
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.logo {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: var(--margin-size);
+}
+.dateandcountry {
+  display: flex;
+  align-items: center;
+}
+.flagtitle {
+  position: relative;
+  margin-right: 5px;
+  top: 3px
+}
+
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.topbarIconContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.dropdowncontent {
+  position: absolute;
+  right: 0;
+  border-radius: var(--borderradius);
+  top: var(--topbar-size);
+  background-color: var(--bg-widgets);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-right: 1rem;
+  padding: 15px;
+}
+
+
+
+.topbarDropdownBTN {
+  border: no;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: calc(var(--margin-size) / 2);
+  padding-left: calc(var(--margin-size) / 2);
+  height: var(--topbar-size);
+}
+.dropdowncontent a {
+  color: black;
+  padding: 12px 16px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.flag {
+display: flex;
+flex-direction: row;
+}
+
+.flagcont {
+  position: relative;
+  top: 1px;
+  margin-right: 10px;
+  }
+
+.dropdowncontent a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+.dropdown:hover .topbarDropdownBTN {
+  background-color: #f1f1f1;
+  transition: background-color 600ms ease-out;
+}
+
+.topbarIconContainer .tooltiptext {
+  visibility: hidden;
+  width: calc(120px + 0.390625vw);
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  right: 0px;
+  opacity: 0;
+  transition: opacity 600ms;
+  font-size: 0.8rem;
+}
+
+.topbarIconContainer .tooltiptext1 {
+  visibility: hidden;
+  width: calc(120px + 0.390625vw);
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 600ms;
+  font-size: 0.8rem;
+}
+
+.topbarIconContainer .tooltiptext2 {
+  visibility: hidden;
+  width: calc(120px + 0.390625vw);
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 600ms;
+  font-size: 0.8rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .topbarWrapper {
+    margin-left: 0;
+  }
+  .dateandcountry {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .topbarWrapper {
+    margin-left: var(--leftmargin-size);
+  }
+  .topbarIconContainer:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.7;
+  }
+  .topbarIconContainer:hover .tooltiptext1 {
+    visibility: visible;
+    opacity: 0.7;
+  }
+  .topbarIconContainer:hover .tooltiptext2 {
+    visibility: visible;
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// 1
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+  //provider = "sqlite"
+  //url      = "file:./dev.db"
+  
+}
+
+// 2
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 3
+model Datapoint {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  value Float?
+  timestamp DateTime
+  metainfo Metadata? @relation(fields: [metadataid], references: [id])
+  metadataid String? @db.ObjectId
+  postedBy    User?    @relation(fields: [postedById], references: [id])
+  postedById  String? @db.ObjectId
+  country String
+    
+  @@unique([metadataid, postedById])
+}
+
+model User {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  password  String 
+  datapoints     Datapoint[]
+}
+
+model Metadata {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  unit      String
+  type     String   @unique
+  datapoints     Datapoint[]
+}

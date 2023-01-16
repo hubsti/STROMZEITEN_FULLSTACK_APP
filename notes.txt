@@ -1,0 +1,35 @@
+// lib/prisma.ts
+import { PrismaClient } from '@prisma/client';
+
+let prisma: PrismaClient;
+
+if (process.env.NODE_ENV === 'production') {
+  prisma = new PrismaClient();
+} else {
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
+  }
+  prisma = global.prisma;
+}
+
+export default prisma;
+
+  const where = {
+        AND: [
+          {
+            timestamp: {
+              gte: new Date('2022-12-19'),
+              lte: new Date('2022-12-20'),
+            },
+          },
+          { country: "Belgium" },
+          {metainfo: {type: "Solar"}}
+        ],
+        select: {
+          value: true,
+          country: true,
+        },
+      }
+import styles from "../../styles/CustomTooltip.module.scss";
+  const formtdate1 = format(new Date(), "eeee, do MMMM yyyy");
+<div className={styles.arrowicon}>
